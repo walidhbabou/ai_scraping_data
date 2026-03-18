@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: morocco-ai-guide-api
+    runtime: python
+    plan: free
+    region: frankfurt
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    startCommand: uvicorn ai_guide_api:app --host 0.0.0.0 --port $PORT
+    autoDeploy: true
