@@ -216,6 +216,19 @@ def startup_event() -> None:
     guide_model.load()
 
 
+@app.get("/")
+def root() -> Dict[str, Any]:
+    return {
+        "status": "ok",
+        "message": "Morocco AI Guide API is running.",
+        "endpoints": {
+            "health": "/health",
+            "docs": "/docs",
+            "ask": "/ask",
+        },
+    }
+
+
 @app.get("/health")
 def health() -> Dict[str, Any]:
     return {
